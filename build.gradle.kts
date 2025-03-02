@@ -4,7 +4,7 @@ import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
 plugins {
     kotlin("jvm")
     `maven-publish`
-    id("io.gitlab.arturbosch.detekt") version "1.22.0"
+    id("io.gitlab.arturbosch.detekt") version "1.23.4"
 }
 
 repositories {
@@ -46,7 +46,7 @@ tasks.register<DetektCreateBaselineTask>("createDetektBaseline") {
 }
 
 tasks.withType<Detekt>().configureEach {
-    jvmTarget = JavaVersion.VERSION_11.toString()
+    jvmTarget = JavaVersion.VERSION_21.toString()
     exclude("**/build/**")
     reports {
         html.required.set(true)

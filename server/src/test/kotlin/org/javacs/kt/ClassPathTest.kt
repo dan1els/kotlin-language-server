@@ -38,7 +38,7 @@ class ClassPathTest {
         print(resolvers)
         val classPath = resolvers.classpathOrEmpty.map { it.toString() }
 
-        assertThat(classPath, hasItem(containsString("junit")))
+        assertThat(classPath, hasItem(containsString("stdlib")))
     }
 
     @Test fun `find kotlin stdlib`() {

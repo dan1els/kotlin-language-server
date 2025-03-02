@@ -198,6 +198,7 @@ class SourceFiles(
     fun isIncluded(uri: URI): Boolean = exclusions.isURIIncluded(uri)
 }
 
+@Suppress("all")
 private fun patch(sourceText: String, change: TextDocumentContentChangeEvent): String {
     val range = change.range
     val reader = BufferedReader(StringReader(sourceText))

@@ -39,7 +39,7 @@ fun main(argv: Array<String>) {
     } ?: Pair(System.`in`, System.out)
 
     val server = KotlinLanguageServer()
-    val threads = Executors.newSingleThreadExecutor { Thread(it, "client") }
+    val threads = Executors.newCachedThreadPool()
     val launcher = LSPLauncher.createServerLauncher(server, ExitingInputStream(inStream), outStream, threads) { it }
 
     server.connect(launcher.remoteProxy)

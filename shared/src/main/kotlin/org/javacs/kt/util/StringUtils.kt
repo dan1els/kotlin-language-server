@@ -14,6 +14,7 @@ package org.javacs.kt.util
  * @param pattern The second string
  * @param maxOffset The number of characters to search for matching letters
  */
+@Suppress("all")
 fun stringDistance(candidate: CharSequence, pattern: CharSequence, maxOffset: Int = 4): Int = when {
     candidate.length == 0 -> pattern.length
     pattern.length == 0 -> candidate.length
