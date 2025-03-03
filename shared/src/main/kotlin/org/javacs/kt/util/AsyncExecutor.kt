@@ -7,10 +7,10 @@ import java.util.concurrent.CompletableFuture
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
-private var threadCount = 0
-
 class AsyncExecutor {
-	private val workerThread = Executors.newSingleThreadExecutor { Thread(it, "async${threadCount++}") }
+
+    private val asyncThreadFactory = Thread.ofVirtual().name("async-", 0L).factory()
+	private val workerThread = Executors.newThreadPerTaskExecutor(asyncThreadFactory)
 
     fun execute(task: () -> Unit) =
             CompletableFuture.runAsync(Runnable(task), workerThread)
